@@ -29,11 +29,5 @@ p {
 	vertical-align: top;
 	margin: 0;
 }
- 
-.imgarea {
-	height: 150px;
-	width: calc(40% - 6px);
-	background-color: #ccc;
-	display: inline-block;
-}
+
 
