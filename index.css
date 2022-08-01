@@ -24,7 +24,7 @@ input[type="text"] {
  input[type="submit"] { 
 	height: 60px;
 	width: 80px;
-	font-size: 150%;
+	font-size: 100%;
  }
  
 aside {
@@ -106,7 +106,7 @@ opacity: 1;
  input[type="submit"] { 
 	height: 35px;
 	width: 50x;
-	font-size: 80%;
+	font-size: %;
  }
 
  h1{
