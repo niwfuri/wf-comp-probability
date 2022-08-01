@@ -1,217 +1,120 @@
-<!DOCTYPE html>
-<html>
-    <script>
-     
-        function getNumber(){
-            return  parseInt(document.querySelector("#Number").value);
-        };
-        
-        function getNumberT(){
-            return  parseInt(document.querySelector("#NumberT").value);
-        };        
-        
-        function getNumberS(){
-            return  parseInt(document.querySelector("#NumberS").value);
-        };     
+main {
+	width: 70%;
+	display: inline-block;
+	vertical-align: top;
+}
 
-        function pic1(){
-            let N = getNumber();
-            let res = 100*(1-1*(0.985)**N);
-            document.querySelector("#pic1").value = res.toFixed(2);
-        };
+body {
+      background-color: #486d46;
+      background-image: url("キービジュアル透過.jpg"); /* 640x426 */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+	  width: auto;
+	  font-size: 120%;
+	  
+	  
+}
 
-        function pic2(){
-            let N = getNumber();
-            let res = 100*(1-2*(0.99)**N+(0.98)**N);
-            document.querySelector("#pic2").value = res.toFixed(2)
-        };
-
-        function pic3(){
-            let N = getNumber();
-            let res = 100*(1-3*(0.993)**N+3*(0.986)**N-1*(0.979)**N);
-            document.querySelector("#pic3").value = res.toFixed(2);
-        };
-
-        function pic4(){
-            let N = getNumber();
-            let res = 100*(1-4*(0.995)**N+6*(0.99)**N-4*(0.985)**N+(0.98)**N);
-            document.querySelector("#pic4").value = res.toFixed(2);
-        };
-
-        function calc(){
-            pic1();
-            pic2();
-            pic3();
-            pic4();
-        };
-
-        function pic2t(){
-            let N = getNumberT();
-            let res = 100*(1-(0.98)**N);
-            document.querySelector("#pic2t").value = res.toFixed(2);
-        };
-
-        function pic3t(){
-            let N = getNumberT();
-            let res = 100*(3*(1-2*(0.993)**N+(0.986)**N)-2*(1-3*(0.993)**N+3*(0.986)**N-1*(0.979)**N));
-            document.querySelector("#pic3t").value = res.toFixed(2);
-        };              
-
-        function pic4t(){
-            let N = getNumberT();
-            let res = 100*(4*(1-3*(0.995)**N+3*(0.99)**N-1*(0.985)**N)-3*(1-4*(0.995)**N+6*(0.99)**N-4*(0.985)**N+(0.98)**N));
-            document.querySelector("#pic4t").value = res.toFixed(2);
-        };
-
-        function calcT(){
-            pic2t();
-            pic3t();
-            pic4t();
-        };
-        
-        function pic2s1(){
-            let N = getNumberS();
-            let res = 100*(1-(0.99)**N);
-            document.querySelector("#pic2s1").value = res.toFixed(2);
-        };
-
-        function pic3s1(){
-            let N = getNumberS();
-            let res = 100*(1-(0.993)**N);
-            document.querySelector("#pic3s1").value = res.toFixed(2);
-        };              
-
-        function pic3s2(){
-            let N = getNumberS();
-            let res = 100*(1-2*(0.993)**N+(0.986)**N);
-            document.querySelector("#pic3s2").value = res.toFixed(2);
-        };
-
-        function pic4s1(){
-            let N = getNumberS();
-            let res = 100*(1-(0.995)**N);
-            document.querySelector("#pic4s1").value = res.toFixed(2);
-        };
-
-        function pic4s2(){
-            let N = getNumberS();
-            let res = 100*(1-2*(0.995)**N+(0.99)**N);
-            document.querySelector("#pic4s2").value = res.toFixed(2);
-        };              
-
-        function pic4s3(){
-            let N = getNumberS();
-            let res = 100*(1-3*(0.995)**N+3*(0.99)**N-1*(0.985)**N);
-            document.querySelector("#pic4s3").value = res.toFixed(2);
-        };        
-
-        function calcS(){
-            pic2s1();
-            pic3s1();
-            pic3s2();
-            pic4s1();
-            pic4s2();
-            pic4s3();
-        };        
-
-    </script>
-
-    
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ワーフリコンプ確率計算ツール</title>
-        <link rel="stylesheet" href="コンプ確率.css">
-    <table class="form-table">
-    <body>
-        <h1>ワーフリコンプ確率計算ツール</h1>
-        ※半角数字で入力
-            <!--引く回数を入力するテキストボックスを作成-->
-        <h2>交換なしのコンプ確率</h2>    
-            <a>何回引きますか?</a> <input type="text" id="Number"/><br>
-            <a>1PUでの確率は</a> <input type="text" id="pic1"/><a>％です</a><br>
-            <a>2PUでの確率は</a> <input type="text" id="pic2"/><a>％です</a><br>
-            <a>3PUでの確率は</a> <input type="text" id="pic3"/><a>％です</a><br>
-            <a>4PUでの確率は</a> <input type="text" id="pic4"/><a>％です</a><br>            
-        <div class="btn">
-            <input type="submit" onclick="calc()" value="計算">
-        </div>
-        <br> 
-        <br> 
-        <br> 
-        <h2>交換ありのコンプ確率</h2>
-            <a>何回引きますか?</a> <input type="text" id="NumberT"/><br>
-            <a>2PUでの確率は</a> <input type="text" id="pic2t"/><a>％です</a><br>
-            <a>3PUでの確率は</a> <input type="text" id="pic3t"/><a>％です</a><br>
-            <a>4PUでの確率は</a> <input type="text" id="pic4t"/><a>％です</a><br>            
-        <div class="btn">
-            <input type="submit" onclick="calcT()" value="計算">
-        <br> 
-        <br> 
-        <br> 
-        <h2>特定のキャラが欲しい場合の確率</h2>
-            <a>何回引きますか?</a> <input type="text" id="NumberS"/><br>
-            <a>2PUで1キャラ狙いの確率は</a> <input type="text" id="pic2s1"/><a>％です</a><br>
-            <a>3PUで1キャラ狙いの確率は</a> <input type="text" id="pic3s1"/><a>％です</a><br>
-            <a>3PUで2キャラ狙いの確率は</a> <input type="text" id="pic3s2"/><a>％です</a><br>
-            <a>4PUで1キャラ狙いの確率は</a> <input type="text" id="pic4s1"/><a>％です</a><br>   
-            <a>4PUで2キャラ狙いの確率は</a> <input type="text" id="pic4s2"/><a>％です</a><br>                  
-            <a>4PUで3キャラ狙いの確率は</a> <input type="text" id="pic4s3"/><a>％です</a><br>  
-        <div class="btn">
-            <input type="submit" onclick="calcS()" value="計算">      
-        </div>
-        <br> 
-        <br>    
-        <br> 
-        <b>交換なしのコンプ確率</b>は全てのキャラが少なくとも1体以上排出される確率を計算しています<br>
-        <b>交換ありのコンプ確率</b>は(PU数-1)種類以上のキャラが排出される確率を計算しています<br>
-        <b>特定のキャラが欲しい場合の確率</b>はある特定のキャラ(A,B,Cの3PUだとするとAとBだけが)欲しいと仮定した場合にAとBが少なくとも1体以上排出される確率を計算しています
-        <br><br>
-        下のボタンを押すと確率の計算式と、計算式が合っているかに使ったシミュレーションのリンクが見れます。
-        <br><br>
-
-       
-
-            <div class="switchdsp">
-            <label for="l-1">
-            <span class="clicktxt">計算式を表示</span>
-            </label>
-            <input type="checkbox" id="l-1"><div class="dsp">
-            <br><br><br><br>
-            <b>交換なしのコンプ確率</b><br>
-            1PU→100(1-(0.985)^N)<br>
-            2PU→100(1-2(0.99)^N+(0.98)^N)<br>
-            3PU→100(1-3(0.993)^N+3(0.986)^N-1(0.979)^N)<br>
-            4PU→100(1-4(0.995)^N+6(0.99)^N-4(0.985)^N+(0.98)^N)<br><br>
-            
-
-            <b>
-            交換ありのコンプ確率</b><br>
-            2PU→100(1-(0.98)^N)<br>
-            3PU→100(3*(1-2*(0.993)^N+(0.986)^N)-2(1-3*(0.993)^N+3*(0.986)^N-1*(0.979)^N))<br>
-            4PU→100(4*(1-3*(0.995)^N+3*(0.99)^N-1*(0.985)^N)-3*(1-4*(0.995)^N+6*(0.99)^N-4*(0.985)^N+(0.98)^N))<br><br>
-            
-
-            
-            <b>特定のキャラが欲しい場合の確率</b><br>
-            2PUで特定の1体が欲しい場合→1-(0.99)^N<br>
-            3PUで特定の1体が欲しい場合→1-(0.993)^N<br>
-            3PUで特定の2体が欲しい場合→(1-2*(0.993)^N+(0.986)^N)<br>
-            4PUで特定の1体が欲しい場合→(1-(0.995)^N)<br>
-            4PUで特定の2体が欲しい場合→((1-2*(0.995)^N+(0.99)^N))<br>
-            4PUで特定の3体が欲しい場合→(1-3*(0.995)^N+3*(0.99)^N-1*(0.985)^N)<br><br>
+input[type="text"] { 
+	
+	height: 48px;
+	width: auto;
+ }
+ input[type="submit"] { 
+	height: 60px;
+	width: 80px;
+	font-size: 150%;
+ }
+ 
+aside {
+	width: calc(30% - 26px);
+	display: inline-block;
+	margin-left: 20px;
+	box-sizing: border-box;
+	border: solid 1px;
+}
+ 
+p {
+	line-height: 2;
+	width: 60%;
+	display: inline-block;
+	padding-right: 10px;
+	box-sizing: border-box;
+	vertical-align: top;
+	margin: 0;
+}
 
 
-            <div class="tagtag">
-  
-            <a href="https://niwfuri.github.io/wf-simulator/">ワーフリガチャシミュレーション</a>
-            </div>
-            
-            <br><br><br><br>
 
-            </div></div>
-        
-        
-    </body>
-    </table>
-    </head>
-</html>
+.clicktxt {
+color:#ffffff;
+background-color: #4169e1;
+padding:15px;
+border-radius: 10px;
+}
+
+.switchdsp input {
+display: none;
+}
+
+.switchdsp .dsp {
+padding: 0px 10px 0px 10px;
+height: 0;
+overflow: hidden;
+transition: 0.9s;
+opacity: 0;
+}
+
+.switchdsp input:checked ~ .dsp {
+padding: 0px 25px 0px 25px;
+height: auto;
+opacity: 1;
+}
+
+
+
+@media screen and (max-width:480px) {
+
+	* {
+		float: none;
+		position: static;
+	}
+	 
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+
+	body {
+		background-color: #486d46;
+		background-image: url("キービジュアル透過.jpg"); /* 640x426 */
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+		font-size: 90%;
+		
+
+  }
+
+  input[type="text"] { 
+	
+	height: 35px;
+	width: auto;
+ }
+ input[type="submit"] { 
+	height: 35px;
+	width: 50x;
+	font-size: 80%;
+ }
+
+ h1{
+	font-size: 100%;
+ }
+ 
+ h2{
+	font-size: 100%;
+ }
+
+}
